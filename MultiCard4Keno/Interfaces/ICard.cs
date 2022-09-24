@@ -15,6 +15,7 @@ namespace MultiCard4Keno.Interfaces
 
         public CardName Name { get; }
         public List<int> Marked { get; set; }
+        public List<int> Drawn { get; }
 
         public bool Mark(int n);
         public void QuickPick();

@@ -1,4 +1,5 @@
 ﻿using MultiCard4Keno.Enums;
+using MultiCard4Keno.Interfaces;
 using MultiCard4Keno.Models;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,16 @@ namespace MultiCard4Keno.Factory
 {
     public class CardFactory
     {
-        public static Card Create(CardName name)
+        public static ICard Create(CardName name)
         {
             return new Card(name);
         }
 
-        public static Card[] Create(CardName[] names)
+        public static ICard[] Create(CardName[] names)
         {
             Card[] cards = new Card[names.Length];
             foreach(CardName name in names){
-                Card card = Create(name);
+                ICard card = Create(name);
             }
 
             return cards;

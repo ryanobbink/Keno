@@ -25,6 +25,7 @@ namespace MultiCard4Keno.Models
 
         public CardName Name => _name;
         public List<int> Marked { get; set; } = new List<int>();
+        public List<int> Drawn { get; private set; } = new List<int>();
 
         public bool CanDraw
         {
@@ -33,6 +34,7 @@ namespace MultiCard4Keno.Models
                 return Marked.Count >= 2 ? true : false;
             }
         }
+
 
         public bool Mark(int n)
         {
@@ -47,7 +49,7 @@ namespace MultiCard4Keno.Models
             }
 
             //Can We Add a Number?
-            if (Marked.Count > 10) return false;
+            if (Marked.Count >= 10) return false;
 
             Marked.Add(n);
 
@@ -61,14 +63,23 @@ namespace MultiCard4Keno.Models
                 .Take(Marked.Count == 0 ? 10 : Marked.Count)
                 .ToList();
 
+
         }
         public bool Draw()
         {
-            throw new NotImplementedException();
+            if(!CanDraw) return false;
+
+            Random rand = new Random();
+            Drawn = Enumerable.Range(1, 80)
+                .OrderBy(x => rand.Next())
+                .Take(20)
+                .ToList();
+
+            return true;
         }
         public void Clear()
         {
-            throw new NotImplementedException();
+            Marked.Clear();
         }
 
 

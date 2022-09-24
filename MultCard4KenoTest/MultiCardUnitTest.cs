@@ -5,16 +5,17 @@ using System.Collections;
 using System.Collections.Generic;
 using MultiCard4Keno.Factory;
 using System.Diagnostics;
+using MultiCard4Keno.Interfaces;
 
-namespace MultCard4KenoTest
+namespace Keno.MultiCard4.Test
 {
     [TestClass]
-    public class CardUnitTest
+    public class MultiCardUnitTest
     {
         [TestMethod]
         public void Card_Create_1CardKeno_True()
         {
-            Card card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
             Assert.AreEqual(CardName.CardA, card.Name);
         }
 
@@ -22,7 +23,7 @@ namespace MultCard4KenoTest
         public void Card_Create_4CardKeno_True()
         {
             CardName[] cardstr = { CardName.CardA, CardName.CardB, CardName.CardC, CardName.CardD };
-            Card[] cards = CardFactory.Create(cardstr);
+            ICard[] cards = CardFactory.Create(cardstr);
 
             Assert.AreEqual(4, cards.Length);
         }
@@ -30,7 +31,7 @@ namespace MultCard4KenoTest
         [TestMethod]
         public void Card_Mark_2DifferentSpots_Tests()
         {
-            Card card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
 
             Assert.IsTrue(card.Mark(1));
             Assert.IsTrue(card.Mark(2));
@@ -41,7 +42,7 @@ namespace MultCard4KenoTest
         [TestMethod]
         public void Card_Mark_2SameSpots_CardRemoveTest()
         {
-            Card card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
             Assert.IsTrue(card.Mark(18));
             Assert.IsFalse(card.Mark(18));
 
@@ -49,9 +50,27 @@ namespace MultCard4KenoTest
             Assert.AreEqual(0, card.Marked.Count);
         }
         [TestMethod]
+        public void Card_Mark_10Spots_TryAdd1More()
+        {
+            ICard card = CardFactory.Create(CardName.CardA);
+            Assert.IsTrue(card.Mark(1));
+            Assert.IsTrue(card.Mark(2));
+            Assert.IsTrue(card.Mark(3));
+            Assert.IsTrue(card.Mark(4));
+            Assert.IsTrue(card.Mark(5));
+            Assert.IsTrue(card.Mark(6));
+            Assert.IsTrue(card.Mark(7));
+            Assert.IsTrue(card.Mark(8));
+            Assert.IsTrue(card.Mark(9));
+            Assert.IsTrue(card.Mark(10));
+
+            //No more spots allowed
+            Assert.IsFalse(card.Mark(11));
+        }
+        [TestMethod]
         public void Card_QuickPick_NoSpotsMarked_10Spots()
         {
-            Card card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
             //No Marks
 
             card.QuickPick();
@@ -62,7 +81,7 @@ namespace MultCard4KenoTest
         public void Card_QuickPick_NoDuplicates_10Spots_1000Tests()
         {
             const int runTests = 1000;
-            var card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
             card.QuickPick();
             for(int i = 0; i < runTests; i++)
             {
@@ -77,7 +96,7 @@ namespace MultCard4KenoTest
         [TestMethod]
         public void Card_QuickPick_2SpotsMarked_2Spots()
         {
-            var card = CardFactory.Create(CardName.CardA);
+            ICard card = CardFactory.Create(CardName.CardA);
             card.Mark(52);
             card.Mark(43);
 
@@ -88,7 +107,7 @@ namespace MultCard4KenoTest
         [TestMethod]
         public void Card_QuickPick_5SpotMarked_5Spots()
         {
-            var card = CardFactory.Create(CardName.CardC);
+            ICard card = CardFactory.Create(CardName.CardC);
             card.Mark(8);
             card.Mark(17);
             card.Mark(19);
@@ -98,11 +117,17 @@ namespace MultCard4KenoTest
             card.QuickPick();
             Assert.AreEqual(5, card.Marked.Count);
         }
+
         [TestMethod]
-        public void Card_QuickPick_4Cards_2SpotsMarkedCardA()
+        public void Card_QuickPick_10Spot()
+        {
+
+        }
+        [TestMethod]
+        public void Card_QuickPick_4Cards_2SpotsMarkedCardA_MarkAllCards2Spot()
         {
             CardName[] cardstr = { CardName.CardA, CardName.CardB, CardName.CardC, CardName.CardD };
-            Card[] cards = CardFactory.Create(cardstr);
+            ICard[] cards = CardFactory.Create(cardstr);
 
             //Card A has Two Marked Spots
             cards.Where(x => x.Name == CardName.CardA).First().Mark(18);
@@ -120,15 +145,60 @@ namespace MultCard4KenoTest
         }
 
         [TestMethod]
-        public void Card_QuickPick_10Spot()
+        public void Card_QuickPick_Default()
         {
 
         }
 
         [TestMethod]
-        public void Card_QuickPick_Default()
+        public void Card_Draw_NoSpotsSelected()
         {
+            ICard card = CardFactory.Create(CardName.CardA);
 
+            Assert.IsFalse(card.Draw());
+        }
+
+        [TestMethod]
+        public void Card_Draw_1SpotSelected()
+        {
+            ICard card = CardFactory.Create(CardName.CardA);
+            card.Mark(35);
+
+            Assert.IsFalse(card.Draw());
+        }
+
+
+        [TestMethod]
+        public void Card_Draw_2SpotSelected()
+        {
+            ICard card = CardFactory.Create(CardName.CardA);
+            card.Mark(34);
+            card.Mark(36);
+
+
+            Assert.IsTrue(card.Draw());
+            Assert.AreEqual(20, card.Drawn.Count);
+        }
+
+        [TestMethod]
+        public void Card_Draw_QuickPick_10Spots()
+        {
+            ICard card = CardFactory.Create(CardName.CardC);
+            card.QuickPick();
+            card.Draw();
+
+            Assert.AreEqual(10, card.Marked.Count);
+            Assert.AreEqual(20, card.Drawn.Count);
+        }
+
+        [TestMethod]
+        public void Card_Clear_RemoveSpots()
+        {
+            ICard card = CardFactory.Create(CardName.CardA);
+            card.Mark(18);
+            card.Clear();
+
+            Assert.AreEqual(0, card.Marked.Count);
         }
     }
 }
