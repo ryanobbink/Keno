@@ -1,0 +1,244 @@
+{
+  "payTableNinetyTwoPercent": {
+    "oneSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 3
+      }
+    ],
+    "twoSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 15
+      }
+    ],
+    "threeSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 2
+      },
+      {
+        "hit": 3,
+        "pay": 48
+      }
+    ],
+    "fourSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 2
+      },
+      {
+        "hit": 3,
+        "pay": 5
+      },
+      {
+        "hit": 4,
+        "pay": 100
+      }
+    ],
+    "fiveSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 3
+      },
+      {
+        "hit": 4,
+        "pay": 13
+      },
+      {
+        "hit": 5,
+        "pay": 838
+      }
+    ],
+    "sixSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 3
+      },
+      {
+        "hit": 4,
+        "pay": 4
+      },
+      {
+        "hit": 5,
+        "pay": 75
+      },
+      {
+        "hit": 6,
+        "pay": 1660
+      }
+    ],
+    "sevenSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 1
+      },
+      {
+        "hit": 4,
+        "pay": 2
+      },
+      {
+        "hit": 5,
+        "pay": 22
+      },
+      {
+        "hit": 6,
+        "pay": 422
+      },
+      {
+        "hit": 7,
+        "pay": 7000
+      }
+    ],
+    "eightSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 0
+      },
+      {
+        "hit": 4,
+        "pay": 2
+      },
+      {
+        "hit": 5,
+        "pay": 13
+      },
+      {
+        "hit": 6,
+        "pay": 100
+      },
+      {
+        "hit": 7,
+        "pay": 1670
+      },
+      {
+        "hit": 8,
+        "pay": 10000
+      }
+    ],
+    "nineSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 0
+      },
+      {
+        "hit": 4,
+        "pay": 1
+      },
+      {
+        "hit": 5,
+        "pay": 6
+      },
+      {
+        "hit": 6,
+        "pay": 44
+      },
+      {
+        "hit": 7,
+        "pay": 362
+      },
+      {
+        "hit": 8,
+        "pay": 4700
+      },
+      {
+        "hit": 9,
+        "pay": 10000
+      }
+    ],
+    "tenSpotMarked": [
+      {
+        "hit": 1,
+        "pay": 0
+      },
+      {
+        "hit": 2,
+        "pay": 0
+      },
+      {
+        "hit": 3,
+        "pay": 0
+      },
+      {
+        "hit": 4,
+        "pay": 0
+      },
+      {
+        "hit": 5,
+        "pay": 5
+      },
+      {
+        "hit": 6,
+        "pay": 24
+      },
+      {
+        "hit": 7,
+        "pay": 146
+      },
+      {
+        "hit": 8,
+        "pay": 1000
+      },
+      {
+        "hit": 9,
+        "pay": 4500
+      },
+      {
+        "hit": 10,
+        "pay": 10000
+      }
+    ]
+  }
+}

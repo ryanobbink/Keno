@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MultiCard4Keno\Keno.csproj" />
+    <ProjectReference Include="..\MultiCard4Keno\Keno.Core.csproj" />
   </ItemGroup>
 
 </Project>
