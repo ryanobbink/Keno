@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keno", "MultiCard4Keno\Keno.csproj", "{4D5F302B-7EB5-4805-8372-73BB50D7BFB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keno.Core", "MultiCard4Keno\Keno.Core.csproj", "{4D5F302B-7EB5-4805-8372-73BB50D7BFB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "..\..\polymorphism-basics\Polymorphism\Polymorphism.csproj", "{874FD66D-5DB8-403C-8BAD-6CD24D9B5724}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassDefinition", "ClassDefinition", "{065EFA0E-2D50-406B-9864-D509E9B7AD53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keno.MultiCard4.Test", "MultCard4KenoTest\Keno.MultiCard4.Test.csproj", "{6C2161B6-F41C-4114-B97C-6F36E492B4CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keno.MultiCard4Game.Test", "MultCard4KenoTest\Keno.MultiCard4Game.Test.csproj", "{6C2161B6-F41C-4114-B97C-6F36E492B4CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keno.SingleCard.Test", "Keno.SingleCard.Test\Keno.SingleCard.Test.csproj", "{11D19BBC-69E0-4678-9F31-E74021C4547D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keno.SingleCardGame.Test", "Keno.SingleCard.Test\Keno.SingleCardGame.Test.csproj", "{11D19BBC-69E0-4678-9F31-E74021C4547D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keno.Admin", "Keno.Admin\Keno.Admin.csproj", "{EA545532-D2F9-4F8B-BDFB-45118FAFD3C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{11D19BBC-69E0-4678-9F31-E74021C4547D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11D19BBC-69E0-4678-9F31-E74021C4547D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11D19BBC-69E0-4678-9F31-E74021C4547D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA545532-D2F9-4F8B-BDFB-45118FAFD3C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA545532-D2F9-4F8B-BDFB-45118FAFD3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA545532-D2F9-4F8B-BDFB-45118FAFD3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA545532-D2F9-4F8B-BDFB-45118FAFD3C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

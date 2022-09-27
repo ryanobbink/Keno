@@ -1,6 +1,7 @@
-using MultiCard4Keno.Enums;
-using MultiCard4Keno.Factory;
-using MultiCard4Keno.Interfaces;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Keno.Core.Enums;
+using Keno.Core.Factory;
+using Keno.Core.Interfaces;
 
 namespace Keno.SingleCard.Test
 {
@@ -110,27 +111,6 @@ namespace Keno.SingleCard.Test
 
         }
         [TestMethod]
-        public void Card_QuickPick_4Cards_2SpotsMarkedCardA_MarkAllCards2Spot()
-        {
-            CardName[] cardstr = { CardName.CardA, CardName.CardB, CardName.CardC, CardName.CardD };
-            ICard[] cards = CardFactory.Create(cardstr);
-
-            //Card A has Two Marked Spots
-            cards.Where(x => x.Name == CardName.CardA).First().Mark(18);
-            cards.Where(x => x.Name == CardName.CardA).First().Mark(13);
-
-            cards[0].QuickPick();
-            cards[1].QuickPick();
-            cards[2].QuickPick();
-            cards[3].QuickPick();
-
-            Assert.AreEqual(2, cards[0].Marked.Count);
-            Assert.AreEqual(2, cards[1].Marked.Count);
-            Assert.AreEqual(2, cards[2].Marked.Count);
-            Assert.AreEqual(2, cards[3].Marked.Count);
-        }
-
-        [TestMethod]
         public void Card_QuickPick_Default()
         {
 
@@ -175,6 +155,22 @@ namespace Keno.SingleCard.Test
 
             Assert.AreEqual(10, card.Marked.Count);
             Assert.AreEqual(20, card.Drawn.Count);
+        }
+
+        [TestMethod]
+        public void Card_Win_10SpotMarkandDraw()
+        {
+            ICard card = CardFactory.Create(CardName.CardA);
+
+            card.QuickPick();
+            card.Draw();
+
+            if (!card.Win)
+            {
+                card.Draw();
+            }
+
+            Assert.AreEqual(true, card.Drawn.Contains(card.Marked[11]));
         }
 
         [TestMethod]

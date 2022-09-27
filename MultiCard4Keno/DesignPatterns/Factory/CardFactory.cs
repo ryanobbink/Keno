@@ -1,13 +1,13 @@
-﻿using MultiCard4Keno.Enums;
-using MultiCard4Keno.Interfaces;
-using MultiCard4Keno.Models;
+﻿using Keno.Core.Enums;
+using Keno.Core.Interfaces;
+using Keno.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiCard4Keno.Factory
+namespace Keno.Core.Factory
 {
     public class CardFactory
     {

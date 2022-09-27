@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiCard4Keno.Enums
+namespace Keno.Core.Enums
 {
     public enum CardName
     {
